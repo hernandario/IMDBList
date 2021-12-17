@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol Searchrepository {
+protocol SearchRepository {
     func fetchSearchWithText(_ text: String, completion: @escaping (Result<SearchDTO, Error>) -> Void)
 }
 
-class IMDBSearchrepository: Searchrepository {
+class IMDBSearchRepository: SearchRepository {
     func fetchSearchWithText(_ text: String, completion: @escaping (Result<SearchDTO, Error>) -> Void) {
         
     }
