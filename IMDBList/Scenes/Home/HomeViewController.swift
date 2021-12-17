@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol HomeView: AnyObject {
-    
+    func setUI()
 }
 
 class HomeViewController: UIViewController {
@@ -20,35 +20,29 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initScene()
-        initUI()
+        presenter?.viewDidLoad()
     }
 }
 
 
 private extension HomeViewController {
-    private func initScene() {
+    func initScene() {
         let repository = IMDBSearchRepository()
         let interactor = HomeInteractorimplementation(repository: repository)
         let router = HomeRouterImplementation(controller: self)
-        presenter = HomePresenterimplementation(view: self,
+        let presenterImplementation = HomePresenterimplementation(view: self,
                                                 interactor: interactor,
                                                 router: router)
-        interactor.presenter = presenter
-        presenter?.viewDidLoad()
+        interactor.presenter = presenterImplementation
+        self.presenter = presenterImplementation
     }
     
-    private func initUI() {
-        setTableView()
-        setSearchBar()
-        setNavigationBar()
-    }
-    
-    private func setNavigationBar() {
+    func setNavigationBar() {
         title = "IMDB Search Utility"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func setSearchBar() {
+    func setSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Candies"
@@ -56,18 +50,26 @@ private extension HomeViewController {
         definesPresentationContext = true
     }
     
-    private func setTableView() {
+    func setTableView() {
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.separatorStyle = .none
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.estimatedRowHeight = 100
     }
+    
+    func searchWithText(_ text: String) {
+        presenter?.searchWithText(text)
+    }
 }
 
 extension HomeViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    
+      guard let text = searchController.searchBar.text,
+      text.count % 4 == 0 else {
+          return
+      }
+     searchWithText(text)
   }
 }
 
@@ -86,5 +88,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: HomeView {
-    
+    func setUI() {
+        setTableView()
+        setSearchBar()
+        setNavigationBar()
+    }
 }

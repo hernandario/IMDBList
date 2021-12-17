@@ -10,6 +10,12 @@ import Foundation
 protocol HomePrensenter: AnyObject {
     func viewDidLoad()
     func didSelectItem(identifier: String)
+    func searchWithText(_ text: String)
+}
+
+protocol HomePresenterDelegate: AnyObject {
+    func searchDidSuccess(_ result: SearchDTO)
+    func seachDidFail()
 }
 
 class HomePresenterimplementation {
@@ -26,10 +32,24 @@ class HomePresenterimplementation {
 
 extension HomePresenterimplementation: HomePrensenter {
     func viewDidLoad() {
-        
+        view.setUI()
     }
     
     func didSelectItem(identifier: String) {
+        
+    }
+    
+    func searchWithText(_ text: String) {
+        interactor.fetchSearchWithText(text)
+    }
+}
+
+extension HomePresenterimplementation: HomePresenterDelegate {
+    func searchDidSuccess(_ result: SearchDTO) {
+        
+    }
+    
+    func seachDidFail() {
         
     }
 }
