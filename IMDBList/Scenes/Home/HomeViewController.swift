@@ -13,6 +13,7 @@ protocol HomeView: AnyObject {
 }
 
 class HomeViewController: UIViewController {
+    var presenter: HomePrensenter?
     override func viewDidLoad() {
         super.viewDidLoad()
         initScene()
@@ -23,10 +24,20 @@ class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     private func initScene() {
-        
+        let repository = IMDBSearchRepository()
+        let interactor = HomeInteractorimplementation(repository: repository)
+        let router = HomeRouterImplementation(controller: self)
+        presenter = HomePresenterimplementation(view: self,
+                                                interactor: interactor,
+                                                router: router)
+        interactor.presenter = presenter
     }
     
     private func initUI() {
         
     }
+}
+
+extension HomeViewController: HomeView {
+    
 }

@@ -10,7 +10,6 @@
 		1DEA5B8366E12ADA9C7D83C2 /* Pods_IMDBList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13091095974A904C281832BC /* Pods_IMDBList.framework */; };
 		5FACE2AF276C77BC0063ABFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE2AE276C77BC0063ABFA /* AppDelegate.swift */; };
 		5FACE2B1276C77BC0063ABFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE2B0276C77BC0063ABFA /* SceneDelegate.swift */; };
-		5FACE2B3276C77BC0063ABFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE2B2276C77BC0063ABFA /* ViewController.swift */; };
 		5FACE2B6276C77BC0063ABFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FACE2B4276C77BC0063ABFA /* Main.storyboard */; };
 		5FACE2B8276C77BD0063ABFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FACE2B7276C77BD0063ABFA /* Assets.xcassets */; };
 		5FACE2BB276C77BD0063ABFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FACE2B9276C77BD0063ABFA /* LaunchScreen.storyboard */; };
@@ -51,7 +50,6 @@
 		5FACE2AB276C77BC0063ABFA /* IMDBList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMDBList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FACE2AE276C77BC0063ABFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FACE2B0276C77BC0063ABFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FACE2B2276C77BC0063ABFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FACE2B5276C77BC0063ABFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FACE2B7276C77BD0063ABFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FACE2BA276C77BD0063ABFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -135,8 +133,6 @@
 				5FACE2E0276C83780063ABFA /* Resources */,
 				5FACE2DF276C835D0063ABFA /* Models */,
 				5FACE2DE276C834B0063ABFA /* Delegates */,
-				5FACE2B2276C77BC0063ABFA /* ViewController.swift */,
-				5FACE2B4276C77BC0063ABFA /* Main.storyboard */,
 			);
 			path = IMDBList;
 			sourceTree = "<group>";
@@ -188,6 +184,7 @@
 		5FACE2E1276C83970063ABFA /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
+				5FACE2B4276C77BC0063ABFA /* Main.storyboard */,
 				5FACE2B9276C77BD0063ABFA /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoards;
@@ -485,7 +482,6 @@
 			files = (
 				5FACE2E9276CA0870063ABFA /* RepositoryCommons.swift in Sources */,
 				5FACE2E7276C9F120063ABFA /* SearchDTO.swift in Sources */,
-				5FACE2B3276C77BC0063ABFA /* ViewController.swift in Sources */,
 				5FACE2F2276CA4EB0063ABFA /* HomePresenter.swift in Sources */,
 				5FACE2AF276C77BC0063ABFA /* AppDelegate.swift in Sources */,
 				5FACE2E5276C85FA0063ABFA /* Searchrepository.swift in Sources */,
