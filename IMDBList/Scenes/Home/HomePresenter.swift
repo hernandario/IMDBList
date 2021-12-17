@@ -8,7 +8,8 @@
 import Foundation
 
 protocol HomePrensenter: AnyObject {
-    
+    func viewDidLoad()
+    func didSelectItem(identifier: String)
 }
 
 class HomePresenterimplementation {
@@ -24,5 +25,11 @@ class HomePresenterimplementation {
 }
 
 extension HomePresenterimplementation: HomePrensenter {
+    func viewDidLoad() {
+        
+    }
     
+    func didSelectItem(identifier: String) {
+        
+    }
 }
