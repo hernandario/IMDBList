@@ -66,7 +66,8 @@ private extension HomeViewController {
 extension HomeViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
       guard let text = searchController.searchBar.text,
-      text.count % 4 == 0 else {
+            !text.isEmpty,
+            text.count % 4 == 0 else {
           return
       }
      searchWithText(text)

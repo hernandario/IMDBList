@@ -9,5 +9,5 @@ import Foundation
 
 enum RepositoryVariables: String {
     case apiKey = "e6e48654"
-    case host = "http://www.omdbapi.com"
+    case host = "http://www.omdbapi.com/"
 }
