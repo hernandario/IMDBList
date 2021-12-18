@@ -15,7 +15,7 @@ protocol HomePrensenter: AnyObject {
 
 protocol HomePresenterDelegate: AnyObject {
     func searchDidSuccess(_ result: SearchDTO)
-    func seachDidFail()
+    func searchDidFail()
 }
 
 class HomePresenterimplementation {
@@ -37,7 +37,8 @@ extension HomePresenterimplementation: HomePrensenter {
     }
     
     func didSelectItem(index: Int) {
-        
+        guard let item = searchResult?.items[index] else { return }
+        router.goToDetailWithIdentifier(item.imdbId)
     }
     
     func searchWithText(_ text: String) {
@@ -51,7 +52,7 @@ extension HomePresenterimplementation: HomePresenterDelegate {
         view.updateTableWithItems(searchResult?.items ?? [])
     }
     
-    func seachDidFail() {
+    func searchDidFail() {
         
     }
 }

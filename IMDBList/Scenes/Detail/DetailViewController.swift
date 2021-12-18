@@ -13,5 +13,16 @@ protocol DetailView: AnyObject {
 }
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    var presenter: DetailPresenter?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.viewDidLoad()
+    }
+}
+
+extension DetailViewController: DetailView {
     
 }

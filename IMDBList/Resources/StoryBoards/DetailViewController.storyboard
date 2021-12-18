@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k88-qr-Ynm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="uzU-pJ-phr">
+            <objects>
+                <navigationController id="k88-qr-Ynm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RqP-4m-e7H">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5HR-V6-SOc" kind="relationship" relationship="rootViewController" id="Imb-nf-rAw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRK-FB-1sc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-875" y="115"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Tkb-WC-z1y">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="5HR-V6-SOc" customClass="DetailViewController" customModule="IMDBList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NF9-uh-orT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSf-ip-BrX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="un9-Bd-2qU"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O8L-Qd-TIy">
+                                <rect key="frame" x="0.0" y="350" width="414" height="512"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A4l-mW-T63"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O8L-Qd-TIy" firstAttribute="top" secondItem="dSf-ip-BrX" secondAttribute="bottom" id="5HX-z7-Jna"/>
+                            <constraint firstItem="A4l-mW-T63" firstAttribute="trailing" secondItem="O8L-Qd-TIy" secondAttribute="trailing" id="5Se-Vc-w04"/>
+                            <constraint firstItem="A4l-mW-T63" firstAttribute="trailing" secondItem="dSf-ip-BrX" secondAttribute="trailing" id="FIt-pP-9Zo"/>
+                            <constraint firstItem="dSf-ip-BrX" firstAttribute="top" secondItem="NF9-uh-orT" secondAttribute="top" id="TLa-Pc-5Jr"/>
+                            <constraint firstItem="A4l-mW-T63" firstAttribute="bottom" secondItem="O8L-Qd-TIy" secondAttribute="bottom" id="emd-n8-17T"/>
+                            <constraint firstItem="O8L-Qd-TIy" firstAttribute="leading" secondItem="A4l-mW-T63" secondAttribute="leading" id="gu9-oO-KGO"/>
+                            <constraint firstItem="dSf-ip-BrX" firstAttribute="leading" secondItem="A4l-mW-T63" secondAttribute="leading" id="rGp-Mm-pmY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nz6-zy-9Pk"/>
+                    <connections>
+                        <outlet property="posterView" destination="dSf-ip-BrX" id="q9r-wO-AlF"/>
+                        <outlet property="tableView" destination="O8L-Qd-TIy" id="pj7-oP-dTX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g7-HP-RAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="115"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

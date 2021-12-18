@@ -14,6 +14,9 @@
 		5F284659276E695700E118F3 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F284658276E695700E118F3 /* DetailRouter.swift */; };
 		5F28465B276E696300E118F3 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28465A276E696300E118F3 /* DetailInteractor.swift */; };
 		5F28465D276E696E00E118F3 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28465C276E696E00E118F3 /* DetailPresenter.swift */; };
+		5F28465F276E6B4C00E118F3 /* DetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F28465E276E6B4C00E118F3 /* DetailRepository.swift */; };
+		5F284661276E6EDC00E118F3 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F284660276E6EDC00E118F3 /* DetailViewController.storyboard */; };
+		5F284663276E74C700E118F3 /* DetailDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F284662276E74C700E118F3 /* DetailDTO.swift */; };
 		5FACE2AF276C77BC0063ABFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE2AE276C77BC0063ABFA /* AppDelegate.swift */; };
 		5FACE2B1276C77BC0063ABFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE2B0276C77BC0063ABFA /* SceneDelegate.swift */; };
 		5FACE2B6276C77BC0063ABFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FACE2B4276C77BC0063ABFA /* Main.storyboard */; };
@@ -59,6 +62,9 @@
 		5F284658276E695700E118F3 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		5F28465A276E696300E118F3 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		5F28465C276E696E00E118F3 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		5F28465E276E6B4C00E118F3 /* DetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepository.swift; sourceTree = "<group>"; };
+		5F284660276E6EDC00E118F3 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
+		5F284662276E74C700E118F3 /* DetailDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDTO.swift; sourceTree = "<group>"; };
 		5FACE2AB276C77BC0063ABFA /* IMDBList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMDBList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FACE2AE276C77BC0063ABFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FACE2B0276C77BC0063ABFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5FACE2E6276C9F120063ABFA /* SearchDTO.swift */,
+				5F284662276E74C700E118F3 /* DetailDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 			children = (
 				5FACE2B4276C77BC0063ABFA /* Main.storyboard */,
 				5FACE2B9276C77BD0063ABFA /* LaunchScreen.storyboard */,
+				5F284660276E6EDC00E118F3 /* DetailViewController.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 			children = (
 				5FACE2E4276C85FA0063ABFA /* Searchrepository.swift */,
 				5FACE2E8276CA0870063ABFA /* RepositoryCommons.swift */,
+				5F28465E276E6B4C00E118F3 /* DetailRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -386,6 +395,7 @@
 			files = (
 				5F28464E276E3E1400E118F3 /* ItemCell.xib in Resources */,
 				5FACE2BB276C77BD0063ABFA /* LaunchScreen.storyboard in Resources */,
+				5F284661276E6EDC00E118F3 /* DetailViewController.storyboard in Resources */,
 				5FACE2B8276C77BD0063ABFA /* Assets.xcassets in Resources */,
 				5FACE2B6276C77BC0063ABFA /* Main.storyboard in Resources */,
 			);
@@ -519,11 +529,13 @@
 				5FACE2E9276CA0870063ABFA /* RepositoryCommons.swift in Sources */,
 				5FACE2E7276C9F120063ABFA /* SearchDTO.swift in Sources */,
 				5FACE2F2276CA4EB0063ABFA /* HomePresenter.swift in Sources */,
+				5F284663276E74C700E118F3 /* DetailDTO.swift in Sources */,
 				5FACE2AF276C77BC0063ABFA /* AppDelegate.swift in Sources */,
 				5F28465D276E696E00E118F3 /* DetailPresenter.swift in Sources */,
 				5F28464D276E3E1400E118F3 /* ItemCell.swift in Sources */,
 				5FACE2E5276C85FA0063ABFA /* Searchrepository.swift in Sources */,
 				5FACE2EE276CA4CA0063ABFA /* HomeRouter.swift in Sources */,
+				5F28465F276E6B4C00E118F3 /* DetailRepository.swift in Sources */,
 				5F28465B276E696300E118F3 /* DetailInteractor.swift in Sources */,
 				5FACE2F0276CA4DD0063ABFA /* HomeInteractor.swift in Sources */,
 				5F284659276E695700E118F3 /* DetailRouter.swift in Sources */,

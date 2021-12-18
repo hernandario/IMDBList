@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRouter: AnyObject {
-    
+    func goToDetailWithIdentifier(_ identifier: String)
 }
 
 class HomeRouterImplementation {
@@ -20,5 +20,8 @@ class HomeRouterImplementation {
 }
 
 extension HomeRouterImplementation: HomeRouter {
-    
+    func goToDetailWithIdentifier(_ identifier: String) {
+        guard let detailController = DetailRouterImplmentation.createSceneWithIdentifier(identifier) else { return }
+        controller.navigationController?.pushViewController(detailController, animated: true)
+    }
 }

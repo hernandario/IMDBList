@@ -27,7 +27,7 @@ extension HomeInteractorimplementation: HomeInteractor {
             case .success(let searchResult):
                 self?.presenter?.searchDidSuccess(searchResult)
             case .failure:
-                self?.presenter?.seachDidFail()
+                self?.presenter?.searchDidFail()
             }
         }
     }
