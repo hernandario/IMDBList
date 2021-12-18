@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomePrensenter: AnyObject {
     func viewDidLoad()
-    func didSelectItem(identifier: String)
+    func didSelectItem(index: Int)
     func searchWithText(_ text: String)
 }
 
@@ -22,6 +22,7 @@ class HomePresenterimplementation {
     let view: HomeView
     let interactor: HomeInteractor
     let router: HomeRouter
+    private var searchResult: SearchDTO?
     
     init(view: HomeView, interactor: HomeInteractor, router: HomeRouter) {
         self.view = view
@@ -35,7 +36,7 @@ extension HomePresenterimplementation: HomePrensenter {
         view.setUI()
     }
     
-    func didSelectItem(identifier: String) {
+    func didSelectItem(index: Int) {
         
     }
     
@@ -46,7 +47,8 @@ extension HomePresenterimplementation: HomePrensenter {
 
 extension HomePresenterimplementation: HomePresenterDelegate {
     func searchDidSuccess(_ result: SearchDTO) {
-        
+        searchResult = result
+        view.updateTableWithItems(searchResult?.items ?? [])
     }
     
     func seachDidFail() {

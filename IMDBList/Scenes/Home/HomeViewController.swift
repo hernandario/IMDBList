@@ -10,11 +10,13 @@ import UIKit
 
 protocol HomeView: AnyObject {
     func setUI()
+    func updateTableWithItems(_ models: [IMDBItem])
 }
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let searchController = UISearchController(searchResultsController: nil)
+    private var models = [IMDBItem]()
     var presenter: HomePrensenter?
     
     override func viewDidLoad() {
@@ -51,11 +53,11 @@ private extension HomeViewController {
     }
     
     func setTableView() {
-        self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.separatorStyle = .none
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 100
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        ItemCell.registerCell(for: tableView)
     }
     
     func searchWithText(_ text: String) {
@@ -76,15 +78,22 @@ extension HomeViewController: UISearchResultsUpdating {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = ItemCell.getCell(tableView, cellForRowAt: indexPath, with: models[indexPath.row]) else {
+            return UITableViewCell()
+        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.didSelectItem(identifier: "identifier here")
+        presenter?.didSelectItem(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(models.count) results for the search"
     }
 }
 
@@ -93,5 +102,10 @@ extension HomeViewController: HomeView {
         setTableView()
         setSearchBar()
         setNavigationBar()
+    }
+    
+    func updateTableWithItems(_ models: [IMDBItem]) {
+        self.models = models
+        tableView.reloadData()
     }
 }

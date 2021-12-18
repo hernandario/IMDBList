@@ -6,6 +6,7 @@ target 'IMDBList' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Kingfisher'
 
   target 'IMDBListTests' do
     inherit! :search_paths

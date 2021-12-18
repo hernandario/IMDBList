@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - Search
 struct SearchDTO: Codable {
-    let search: [IMDBItem]
+    let items: [IMDBItem]
     let totalResults, response: String
 
     enum CodingKeys: String, CodingKey {
-        case search = "Search"
+        case items = "Search"
         case totalResults
         case response = "Response"
     }

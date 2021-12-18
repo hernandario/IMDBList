@@ -19,7 +19,6 @@ class IMDBSearchRepository {
     }
 }
 
-
 extension IMDBSearchRepository: SearchRepository {
     func fetchSearchWithText(_ text: String, completion: @escaping (Result<SearchDTO, Error>) -> Void) {
         let url = RepositoryVariables.host.rawValue
