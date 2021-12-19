@@ -11,6 +11,7 @@ import UIKit
 protocol HomeView: AnyObject {
     func setUI()
     func updateTableWithItems(_ models: [IMDBItem])
+    func updateAfterFailedRequest()
 }
 
 class HomeViewController: UIViewController {
@@ -45,6 +46,7 @@ private extension HomeViewController {
     }
     
     func setSearchBar() {
+        searchController.searchBar.searchTextField.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Candies"
@@ -76,6 +78,14 @@ extension HomeViewController: UISearchResultsUpdating {
   }
 }
 
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return false }
+        searchWithText(text)
+        return true
+    }
+}
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
@@ -93,7 +103,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(models.count) results for the search"
+        if models.count >= 1 {
+            return "\(models.count) results for the search"
+        } else if !(searchController.searchBar.searchTextField.text?.isEmpty ?? true), models.count == 0 {
+            return "no results for your search"
+        } else {
+            return nil
+        }
     }
 }
 
@@ -107,5 +123,12 @@ extension HomeViewController: HomeView {
     func updateTableWithItems(_ models: [IMDBItem]) {
         self.models = models
         tableView.reloadData()
+    }
+    
+    func updateAfterFailedRequest() {
+        self.models = []
+        tableView.reloadData()
+        let alert = UIAlertController.getAlertForType(.searchFail)
+        present(alert, animated: true, completion: nil)
     }
 }

@@ -17,23 +17,23 @@ struct SearchDTO: Codable {
         case totalResults
         case response = "Response"
     }
+    
+    init(item: IMDBItem) {
+        self.items = [item]
+        self.totalResults = ""
+        self.response = ""
+    }
 }
 
 // MARK: - SearchElement
 struct IMDBItem: Codable {
     let title, year, imdbId: String
-    let type: ItemType
     let poster: String
 
     enum CodingKeys: String, CodingKey {
         case title = "Title"
         case year = "Year"
         case imdbId = "imdbID"
-        case type = "Type"
         case poster = "Poster"
     }
-}
-
-enum ItemType: String, Codable {
-    case movie = "movie"
 }

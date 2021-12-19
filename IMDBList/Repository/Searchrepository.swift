@@ -8,13 +8,17 @@
 import Foundation
 import Alamofire
 
+enum SearchError: Error {
+    case serialization
+}
+
 protocol SearchRepository {
     func fetchSearchWithText(_ text: String, completion: @escaping (Result<SearchDTO, Error>) -> Void)
 }
 
 class IMDBSearchRepository {
     private func getParametersForText(_ text: String) -> [String: String] {
-        return ["s": text,
+        return ["s": text.replacingOccurrences(of: " ", with: "+z"),
                 "apikey": RepositoryVariables.apiKey.rawValue]
     }
 }

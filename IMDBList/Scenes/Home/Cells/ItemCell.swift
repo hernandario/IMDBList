@@ -28,7 +28,8 @@ class ItemCell: UITableViewCell {
 private extension ItemCell {
     func loadPoster(_ poster: String) {
         let url = URL(string: poster)
-        posterView.kf.setImage(with: url)
+        let placeholder = UIImage(named: "imdbPlaceholder")
+        posterView.kf.setImage(with: url, placeholder: placeholder)
     }
 }
 

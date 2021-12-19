@@ -26,8 +26,8 @@ extension HomeInteractorimplementation: HomeInteractor {
             switch result {
             case .success(let searchResult):
                 self?.presenter?.searchDidSuccess(searchResult)
-            case .failure:
-                self?.presenter?.seachDidFail()
+            case .failure(let error):
+                self?.presenter?.searchDidFail(error)
             }
         }
     }
