@@ -45,6 +45,7 @@ private extension HomeViewController {
     }
     
     func setSearchBar() {
+        searchController.searchBar.searchTextField.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Candies"
@@ -74,6 +75,14 @@ extension HomeViewController: UISearchResultsUpdating {
       }
      searchWithText(text)
   }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return false }
+        searchWithText(text)
+        return true
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {

@@ -14,7 +14,7 @@ protocol SearchRepository {
 
 class IMDBSearchRepository {
     private func getParametersForText(_ text: String) -> [String: String] {
-        return ["s": text,
+        return ["s": text.replacingOccurrences(of: " ", with: "+z"),
                 "apikey": RepositoryVariables.apiKey.rawValue]
     }
 }
