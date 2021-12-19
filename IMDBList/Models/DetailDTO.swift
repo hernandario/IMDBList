@@ -16,7 +16,7 @@ struct DetailDTO: Codable {
     let poster: String
     let ratings: [Rating]
     let metascore, imdbRating, imdbVotes, imdbID: String
-    let type, dvd, boxOffice, production: String
+    let type, boxOffice, production: String
     let website, response: String
 
     enum CodingKeys: String, CodingKey {
@@ -38,7 +38,6 @@ struct DetailDTO: Codable {
         case metascore = "Metascore"
         case imdbRating, imdbVotes, imdbID
         case type = "Type"
-        case dvd = "DVD"
         case boxOffice = "BoxOffice"
         case production = "Production"
         case website = "Website"
