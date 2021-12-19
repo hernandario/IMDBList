@@ -13,6 +13,7 @@ protocol DetailView: AnyObject {
     func setUI()
     func updateWithModel(_ model: DetailModel)
     func shareText(_ text: [String])
+    func updateAfterFailedRequest()
 }
 
 class DetailViewController: UIViewController {
@@ -85,5 +86,12 @@ extension DetailViewController: DetailView {
         let activityViewController = UIActivityViewController(activityItems: text, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func updateAfterFailedRequest() {
+        detailInfo = []
+        tableView.reloadData()
+        let alert = UIAlertController.getAlertForType(.datailLoadFail, refreshAction: presenter?.viewDidLoad)
+        present(alert, animated: true, completion: nil)
     }
 }

@@ -53,6 +53,7 @@ extension HomePresenterimplementation: HomePresenterDelegate {
     }
     
     func searchDidFail() {
-        
+        searchResult = nil
+        view.updateAfterFailedRequest()
     }
 }

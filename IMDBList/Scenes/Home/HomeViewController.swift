@@ -11,6 +11,7 @@ import UIKit
 protocol HomeView: AnyObject {
     func setUI()
     func updateTableWithItems(_ models: [IMDBItem])
+    func updateAfterFailedRequest()
 }
 
 class HomeViewController: UIViewController {
@@ -102,7 +103,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(models.count) results for the search"
+        if models.count >= 1 {
+            return "\(models.count) results for the search"
+        } else {
+            return nil
+        }
     }
 }
 
@@ -116,5 +121,12 @@ extension HomeViewController: HomeView {
     func updateTableWithItems(_ models: [IMDBItem]) {
         self.models = models
         tableView.reloadData()
+    }
+    
+    func updateAfterFailedRequest() {
+        self.models = []
+        tableView.reloadData()
+        let alert = UIAlertController.getAlertForType(.searchFail)
+        present(alert, animated: true, completion: nil)
     }
 }

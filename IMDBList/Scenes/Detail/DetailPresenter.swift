@@ -48,13 +48,14 @@ extension DetailPresenterImplementation: DetailPresenter {
 
 extension DetailPresenterImplementation: DetailPresenterDelegate {
     func fetchDetailDidSuccess(_ result: DetailDTO) {
-        self.detailDTO = result
+        detailDTO = result
         let model = DetailModel(result)
         view.updateWithModel(model)
     }
     
     func fetchDetailDidFail() {
-        
+        detailDTO = nil
+        view.updateAfterFailedRequest()
     }
     
 }
