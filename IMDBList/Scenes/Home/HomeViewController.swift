@@ -105,6 +105,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if models.count >= 1 {
             return "\(models.count) results for the search"
+        } else if !(searchController.searchBar.searchTextField.text?.isEmpty ?? true), models.count == 0 {
+            return "no results for your search"
         } else {
             return nil
         }

@@ -8,6 +8,10 @@
 import Foundation
 import Alamofire
 
+enum SearchError: Error {
+    case serialization
+}
+
 protocol SearchRepository {
     func fetchSearchWithText(_ text: String, completion: @escaping (Result<SearchDTO, Error>) -> Void)
 }

@@ -15,7 +15,7 @@ protocol HomePrensenter: AnyObject {
 
 protocol HomePresenterDelegate: AnyObject {
     func searchDidSuccess(_ result: SearchDTO)
-    func searchDidFail()
+    func searchDidFail(_ error: Error)
 }
 
 class HomePresenterimplementation {
@@ -52,8 +52,12 @@ extension HomePresenterimplementation: HomePresenterDelegate {
         view.updateTableWithItems(searchResult?.items ?? [])
     }
     
-    func searchDidFail() {
+    func searchDidFail(_ error: Error) {
         searchResult = nil
-        view.updateAfterFailedRequest()
+        if ((error.asAFError?.isResponseSerializationError) != nil) {
+            view.updateTableWithItems([])
+        } else {
+            view.updateAfterFailedRequest()
+        }
     }
 }
